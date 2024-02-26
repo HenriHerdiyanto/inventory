@@ -40,3 +40,5 @@ Route::get('/penjualan.index', [App\Http\Controllers\PenjualanController::class,
 Route::post('/penjualan.store', [App\Http\Controllers\PenjualanController::class, 'store'])->name('penjualan.store');
 Route::put('/penjualan/update/{id}', [App\Http\Controllers\PenjualanController::class, 'update'])->name('penjualan.update');
 Route::delete('/penjualan/{id}', [App\Http\Controllers\PenjualanController::class, 'destroy'])->name('penjualan.destroy');
+
+Route::get('/export', [App\Http\Controllers\ExportController::class, 'export'])->name('export');

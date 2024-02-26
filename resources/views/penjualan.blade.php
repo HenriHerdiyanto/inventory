@@ -13,6 +13,12 @@
                         <div class="card-header">
                             <div class="d-flex align-items-center">
                                 <h4 class="card-title">Master Penjualan</h4>
+                                <a href="{{ route('export') }}" class="btn btn-info btn-border btn-round btn-sm ml-auto">
+                                    <span class="btn-label">
+                                        <i class="fa fa-pencil"></i>
+                                    </span>
+                                    Export
+                                </a>
                                 <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
                                     data-target="#addRowModal">
                                     <i class="fa fa-plus"></i>
