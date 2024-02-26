@@ -16,11 +16,15 @@
                                     <h4 class="card-title">Master Produk</h4>
                                 </div>
                                 <div class="col d-flex justify-content-end">
-                                    <button class="btn btn-info btn-border btn-round btn-sm " data-toggle="modal"
+                                    <button class="btn btn-info btn-border btn-round btn-sm" data-toggle="modal"
                                         data-target="#ImportRowModal">
                                         <i class="fa fa-plus"></i>
                                         Import
                                     </button>
+                                    <a href="{{ asset('test_produk.xlsx') }}"
+                                        class="btn btn-info btn-border btn-round btn-sm">
+                                        <i class="fa fa-plus"></i> Template Import
+                                    </a>
                                     <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
                                         data-target="#addRowModal">
                                         <i class="fa fa-plus"></i>
