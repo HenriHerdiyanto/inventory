@@ -12,15 +12,59 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex align-produkItems-center">
-                                <h4 class="card-title">Master Produk</h4>
-                                <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
-                                    data-target="#addRowModal">
-                                    <i class="fa fa-plus"></i>
-                                    Add Row
-                                </button>
+                                <div class="col">
+                                    <h4 class="card-title">Master Produk</h4>
+                                </div>
+                                <div class="col d-flex justify-content-end">
+                                    <button class="btn btn-info btn-border btn-round btn-sm " data-toggle="modal"
+                                        data-target="#ImportRowModal">
+                                        <i class="fa fa-plus"></i>
+                                        Import
+                                    </button>
+                                    <button class="btn btn-primary btn-round ml-auto" data-toggle="modal"
+                                        data-target="#addRowModal">
+                                        <i class="fa fa-plus"></i>
+                                        Add Row
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="card-body">
+                            {{-- Modal Import --}}
+                            <div class="modal fade" id="ImportRowModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header no-bd">
+                                            <h5 class="modal-title">
+                                                <span class="fw-mediumbold">Import Data</span>
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form action="{{ route('import') }}" method="post" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="modal-body">
+                                                <div class="row">
+                                                    <div class="col-md-12 pr-0">
+                                                        <div class="form-group form-group-default">
+                                                            <label>Pilih File</label>
+                                                            <input id="file" type="file" class="form-control"
+                                                                name="file">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer no-bd">
+                                                <button type="submit" id="addRowButton"
+                                                    class="btn btn-primary">Add</button>
+                                                <button type="button" class="btn btn-danger"
+                                                    data-dismiss="modal">Close</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                             <!-- Modal -->
                             <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -130,7 +174,7 @@
                                             <tr>
                                                 <td>
                                                     @if (empty($produkItem->kategori))
-                                                        Data Parent Telah dihapus
+                                                        Data Parent Tidak Ditemukan
                                                     @else
                                                         {{ $produkItem->kategori->jenis_kategori }}
                                                     @endif
@@ -141,8 +185,8 @@
                                                 <td>Rp. {{ number_format($produkItem->harga_jual) }}</td>
                                                 <td>{{ $produkItem->stok }}</td>
                                                 <td>
-                                                    <img src="{{ asset('produk/' . $produkItem->foto) }}" class="img-fluid"
-                                                        style="width: 100px;" alt="">
+                                                    <img src="{{ asset('produk/' . $produkItem->foto) }}"
+                                                        class="img-fluid" style="width: 100px;" alt="">
                                                 </td>
                                                 <td>
                                                     @if ($produkItem->stok < 1)

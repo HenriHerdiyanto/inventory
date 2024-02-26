@@ -42,3 +42,4 @@ Route::put('/penjualan/update/{id}', [App\Http\Controllers\PenjualanController::
 Route::delete('/penjualan/{id}', [App\Http\Controllers\PenjualanController::class, 'destroy'])->name('penjualan.destroy');
 
 Route::get('/export', [App\Http\Controllers\ExportController::class, 'export'])->name('export');
+Route::post('/import', [App\Http\Controllers\ImportController::class, 'import'])->name('import');

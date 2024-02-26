@@ -12,8 +12,10 @@
                     <div class="card">
                         <div class="card-header">
                             <div class="d-flex align-items-center">
-                                <h4 class="card-title">Master Penjualan</h4>
-                                <a href="{{ route('export') }}" class="btn btn-info btn-border btn-round btn-sm ml-auto">
+                                <div class="col">
+                                    <h4 class="card-title">Master Penjualan</h4>
+                                </div>
+                                <a href="{{ route('export') }}" class="btn btn-info btn-border btn-round ml-auto">
                                     <span class="btn-label">
                                         <i class="fa fa-pencil"></i>
                                     </span>
@@ -27,7 +29,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <!-- Modal -->
+                            <!-- Modal Tambah-->
                             <div class="modal fade" id="addRowModal" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
