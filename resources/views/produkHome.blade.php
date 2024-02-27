@@ -117,7 +117,7 @@
                                                         <div class="form-group form-group-default">
                                                             <label>Harga Jual</label>
                                                             <input id="harga_jual" type="text" class="form-control"
-                                                                name="harga_jual">
+                                                                name="harga_jual" readonly>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 pr-0">
@@ -315,4 +315,27 @@
             </div>
         </div>
     </div>
+    <script>
+        // Ambil elemen input harga beli dan harga jual
+        const inputHargaBeli = document.getElementById('harga_beli');
+        const inputHargaJual = document.getElementById('harga_jual');
+
+        // Tambahkan event listener pada input harga beli
+        inputHargaBeli.addEventListener('input', function() {
+            // Ambil nilai harga beli dan konversi menjadi angka
+            const hargaBeli = parseFloat(inputHargaBeli.value);
+
+            // Jika nilai harga beli adalah angka
+            if (!isNaN(hargaBeli)) {
+                // Hitung harga jual (harga beli + 30%)
+                const hargaJual = hargaBeli * 1.3;
+
+                // Set nilai input harga jual
+                inputHargaJual.value = hargaJual.toFixed(); // Menampilkan 2 angka di belakang koma
+            } else {
+                // Jika nilai harga beli bukan angka, atur nilai input harga jual menjadi kosong
+                inputHargaJual.value = '';
+            }
+        });
+    </script>
 @endsection
